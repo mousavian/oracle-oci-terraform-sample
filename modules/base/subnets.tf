@@ -22,12 +22,3 @@ resource "oci_core_subnet" "private_subnet" {
     freeform_tags = {"ManagedBy"= "TF11"}
     prohibit_public_ip_on_vnic = "true"
 }
-
-
-variable "public_subnet_cidr_block" {
-    default = "192.168.1.0/25"
-}
-
-variable "private_subnet_cidr_block" {
-    default = "192.168.1.128/25"
-}

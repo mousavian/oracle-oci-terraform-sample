@@ -12,6 +12,10 @@ variable "vcn_name" {
     default = "my-vcn"
 }
 
+variable "vcn_cidr_block" {
+    default = "192.168.1.0/24"
+}
+
 variable "bastion_hostname" {}
 variable "bastion_image_ocid" {
     # Oracle Autonomous Linux 7.7 Image
@@ -21,4 +25,12 @@ variable "bastion_image_ocid" {
 
 variable "bastion_instance_shape" {
     default = "VM.Standard.E2.1.Micro"
+}
+
+variable "public_subnet_cidr_block" {
+    default = "192.168.1.0/25"
+}
+
+variable "private_subnet_cidr_block" {
+    default = "192.168.1.128/25"
 }
