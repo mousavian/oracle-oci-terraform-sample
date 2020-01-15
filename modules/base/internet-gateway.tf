@@ -1,6 +1,6 @@
-resource "oci_core_internet_gateway" "test_internet_gateway" {
+resource "oci_core_internet_gateway" "my_ig" {
     #Required
-    compartment_id = "${oci_identity_compartment.compartment_x.id}"
+    compartment_id = "${oci_identity_compartment.my_compartment.id}"
     vcn_id = "${oci_core_vcn.test_vcn.id}"
 
     #Optional
