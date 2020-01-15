@@ -1,5 +1,7 @@
 # oracle-oci-terraform-sample
 
+This is just a sample code to quickly create and configure Compartment, VCN, Networks and a bastion host in public subnet to ssh into.
+
 
 ## HOW-TO
 1. [Generate API Signing Key in PEM format](#Generate-API-Signing-Key-in-PEM-format) if you don't have it

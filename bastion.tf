@@ -46,3 +46,7 @@ data "oci_core_vnic" "bastion_vnic" {
 output "bastion_public_ip" {
     value = "${data.oci_core_vnic.bastion_vnic.public_ip_address}"
 }
+
+output "ssh_to_bastion_command" {
+    value = "ssh opc@${data.oci_core_vnic.bastion_vnic.public_ip_address}"
+}
