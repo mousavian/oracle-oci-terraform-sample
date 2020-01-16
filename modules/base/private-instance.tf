@@ -1,15 +1,19 @@
-resource "oci_core_instance" "bastion" {
+resource "oci_core_instance" "private_instance" {
     # Required
     availability_domain = "${lookup(data.oci_identity_availability_domains.ads.availability_domains[0], "name")}"
     compartment_id = "${oci_identity_compartment.my_compartment.id}"
     shape = "${var.bastion_instance_shape}"
     create_vnic_details {
         # Required
-        subnet_id = "${oci_core_subnet.public_subnet.id}"
+        subnet_id = "${oci_core_subnet.private_subnet.id}"
+        assign_public_ip = false
 
         # Optional
-        nsg_ids = ["${oci_core_network_security_group.bastion_sg.id}"]
         freeform_tags = {"ManagedBy"= "TF11"}
+        nsg_ids = [
+            "${oci_core_network_security_group.default.id}",
+            "${oci_core_network_security_group.private_ins_sg.id}"
+        ]
     }
 
     source_details {
@@ -19,7 +23,7 @@ resource "oci_core_instance" "bastion" {
 
     # Optional
     preserve_boot_volume = false
-    display_name = "bastion"
+    display_name = "${var.private_instance_name}"
     freeform_tags = {"ManagedBy"= "TF11"}
     metadata = {
         ssh_authorized_keys = "${var.ssh_public_key}"

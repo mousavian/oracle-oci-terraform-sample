@@ -25,7 +25,7 @@ module "base" {
 
     compartment_name = "comp-x"
     compartment_desc = "comp-x test"
-    bastion_hostname = "mybastion"
+    private_instance_name = "instance-x"
 }
 
 output "ssh_to_bastion_command" {
