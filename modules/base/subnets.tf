@@ -26,6 +26,7 @@ resource "oci_core_subnet" "private_subnet" {
     display_name = "private-subnet"
     freeform_tags = {"ManagedBy"= "TF11"}
     prohibit_public_ip_on_vnic = "true"
+    route_table_id = "${oci_core_route_table.private_subnet_svc_gt_rt.id}"
     security_list_ids = [
         "${oci_core_security_list.default.id}",
         "${oci_core_security_list.allow_ssh.id}",

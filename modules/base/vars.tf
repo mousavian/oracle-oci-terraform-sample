@@ -39,3 +39,9 @@ variable "private_subnet_cidr_block" {
 }
 
 variable "private_instance_name" {}
+
+variable "create_bucket" {
+    default = true
+}
+
+variable "bucket_name" {}
