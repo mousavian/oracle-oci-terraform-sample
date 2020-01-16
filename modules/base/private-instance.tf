@@ -1,4 +1,6 @@
 resource "oci_core_instance" "private_instance" {
+    count = "${var.create_private_instance ? "1" : "0"}"
+
     # Required
     availability_domain = "${lookup(data.oci_identity_availability_domains.ads.availability_domains[0], "name")}"
     compartment_id = "${oci_identity_compartment.my_compartment.id}"

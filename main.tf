@@ -25,6 +25,8 @@ module "base" {
 
     compartment_name = "comp-x"
     compartment_desc = "comp-x test"
+
+    create_private_instance = false
     private_instance_name = "instance-x"
 }
 

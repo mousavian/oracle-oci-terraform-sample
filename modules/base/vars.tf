@@ -30,6 +30,10 @@ variable "public_subnet_cidr_block" {
     default = "192.168.1.0/25"
 }
 
+variable "create_private_instance" {
+    default = true
+}
+
 variable "private_subnet_cidr_block" {
     default = "192.168.1.128/25"
 }
