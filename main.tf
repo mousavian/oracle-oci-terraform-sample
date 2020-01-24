@@ -29,7 +29,7 @@ module "base" {
     create_private_instance = true
     private_instance_name = "instance-x"
 
-    create_bucket = true
+    create_bucket = false
     bucket_name = "test"
 }
 
