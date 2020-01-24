@@ -7,7 +7,6 @@ resource "oci_core_route_table" "public_subnet_rt" {
     freeform_tags = {"ManagedBy"= "TF11"}
     display_name = "public-subnet-route-table"
 
-    # Internet access through InternetGateway
     route_rules {
         network_entity_id = "${oci_core_internet_gateway.my_ig.id}"
         destination = "0.0.0.0/0"
@@ -29,7 +28,7 @@ resource "oci_core_route_table" "private_subnet_rt" {
         network_entity_id = "${oci_core_service_gateway.test_service_gateway.id}"
     }
 
-    # Everything else to InternetGateway
+    # Everything else to NatGateway
     route_rules {
         network_entity_id = "${oci_core_nat_gateway.my_ng.id}"
         destination = "0.0.0.0/0"

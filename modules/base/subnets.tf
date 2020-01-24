@@ -30,7 +30,6 @@ resource "oci_core_subnet" "private_subnet" {
     security_list_ids = [
         "${oci_core_security_list.default.id}",
         "${oci_core_security_list.allow_ssh.id}",
-        "${oci_core_security_list.allow_icmp.id}",
-        "${oci_core_security_list.allow_all_egress.id}"
+        "${oci_core_security_list.allow_icmp.id}"
     ]
 }

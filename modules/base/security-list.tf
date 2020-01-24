@@ -24,22 +24,6 @@ resource "oci_core_security_list" "allow_all" {
     }
 }
 
-
-resource "oci_core_security_list" "allow_all_egress" {
-    # Required
-    compartment_id = "${oci_identity_compartment.my_compartment.id}"
-    vcn_id = "${oci_core_vcn.test_vcn.id}"
-
-    # Optional
-    freeform_tags = {"ManagedBy"= "TF11"}
-    display_name = "allow-all-egress"
-
-    egress_security_rules {
-        protocol = "all"
-        destination = "0.0.0.0/0"
-    }
-}
-
 resource "oci_core_security_list" "allow_icmp" {
     # Required
     compartment_id = "${oci_identity_compartment.my_compartment.id}"
